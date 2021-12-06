@@ -43,6 +43,18 @@ export class TodoService {
     });
   }
 
+  workDone(item: Todoitem ,event: any){
+    const entryData = {
+      id: item.id,
+      title: item.title,
+      done: event.target.checked
+    }
+    console.log();
+    return this.http.put(environment.apiUrl + '/TodoItems/' + entryData.id, entryData, {
+      headers: this.headers_object
+    });
+  }
+
   deleteItem(id: number){
     return this.http.delete(environment.apiUrl + '/TodoItems/' + id, {
       headers: this.headers_object

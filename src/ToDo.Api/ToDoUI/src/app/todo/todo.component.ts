@@ -23,7 +23,6 @@ export class TodoComponent implements OnInit {
 
   loadItems(){
     this.todoService.getItems().subscribe((data: any) => (this.todoItems = data.data));
-    console.log(this.todoItems);
   }
 
   saveTodoItem(){
@@ -109,12 +108,26 @@ export class TodoComponent implements OnInit {
     })
   }
 
-  done(id: number){
-    this.todoItems[id].done = !this.todoItems[id].done;
+  eventCheck(item: Todoitem ,event: any){
+    this.todoService.workDone(item, event).subscribe( resp => {
+      this.loadItems();
+    });
   }
 
   logout(){
     this.accountService.logout();
     this.router.navigateByUrl('');
   }
+
+  // isChecked(){
+  //   this.todoService.getItems().subscribe((data: any) => {
+  //     if(data.data.done === 1){
+  //       return true;
+  //     }
+  //     else(data.data.done === 0)
+  //     {
+  //       return false;
+  //     }
+  //   });
+  // }
 }
