@@ -4,7 +4,7 @@ Desafio Envolvers
 
 ## Tecnologias
 
-* [ASP.NET Core 5](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0)
+* [ASP.NET Core 5](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-5.0)
 * [Entity Framework Core 5](https://docs.microsoft.com/en-us/ef/core/)
 * [Angular 12.2.13](https://angular.io/)
 * [MediatR](https://github.com/jbogard/MediatR)
