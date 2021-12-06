@@ -44,7 +44,7 @@ namespace Infraestructure.Persistence.Migrations
 
                     b.HasIndex("ListId");
 
-                    b.ToTable("TodoItem");
+                    b.ToTable("TodoItems");
                 });
 
             modelBuilder.Entity("Domain.Entities.TodoList", b =>
@@ -64,7 +64,7 @@ namespace Infraestructure.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TodoList");
+                    b.ToTable("TodoLists");
                 });
 
             modelBuilder.Entity("Infraestructure.Identity.ApplicationUser", b =>

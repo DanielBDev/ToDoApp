@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDo.Api.Controllers.Account
 {
-    public class AccountController : BaseApiController
+    public class AccountsController : BaseApiController
     {
         [HttpPost("authenticate")]
         public async Task<IActionResult> LoginAsync(AuthenticationRequest request)

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         private readonly ICurrentUserService _currentUserService;
 
@@ -22,8 +22,8 @@ namespace Infraestructure.Persistence
             _currentUserService = currentUserService;
         }
 
-        public DbSet<TodoList> TodoLists;
-        public DbSet<TodoItem> TodoItems;
+        public DbSet<TodoList> TodoLists => Set<TodoList>();
+        public DbSet<TodoItem> TodoItems => Set<TodoItem>();
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

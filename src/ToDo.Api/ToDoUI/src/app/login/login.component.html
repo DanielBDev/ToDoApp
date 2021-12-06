@@ -1,0 +1,25 @@
+<div class="container position-absolute top-50 start-50 translate-middle">
+  <div class="row justify-content-md-center">
+    <div class="col-md-6 col-lg-4 ">
+      <h1 class="text-muted text-center">Login</h1>
+      <br>
+      <form (ngSubmit)="login(formLogin)" #formLogin="ngForm">
+
+        <div class="mb-3">
+          <label for="emailInput" class="form-label text-muted">Email</label>
+          <input type="email" name="email" [(ngModel)]="user.email" required class="form-control" id="emailInput" aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label text-muted">Password</label>
+          <input type="password" name="password" [(ngModel)]="user.password" class="form-control" id="passwordInput">
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary ">Sig In</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

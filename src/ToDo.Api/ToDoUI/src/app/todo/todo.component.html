@@ -1,6 +1,8 @@
-<header class="text-center p-4">
-  <h1>ToDo App</h1>
+<header class="text-end p-4">
+  <h1 class="text-center text-white">ToDo App</h1>
+  <button class="btn btn-danger" (click)="logout()">Log Out</button>
 </header>
+
 <div class="container p-4">
   <div class="row justify-content-md-center">
     <div class="col col-lg-8">
@@ -16,16 +18,19 @@
               {{i+1}}
             </th>
 
-            <td>{{todo.title}}</td>
+            <td>
+              <input [(ngModel)]="todo.title" type="text" name="title" class="form-control" placeholder="Title" style="margin-right: -10px;">
+            </td>
 
-            <td><a href=""><i class="bi bi-trash text-danger"></i></a></td>
             <td>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" *ngIf="">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 </label>
               </div>
             </td>
+            <td><a (click)="updateItem(todo)"><i class="bi bi-pencil text-info"></i></a></td>
+            <td><a (click)="deleteItem(todo.id)"><i class="bi bi-trash text-danger"></i></a></td>
           </tr>
         </tbody>
       </table>

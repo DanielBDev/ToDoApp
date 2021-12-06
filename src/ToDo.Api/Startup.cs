@@ -7,12 +7,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using ToDo.Api.Extensions;
 using ToDo.Api.Services;
 
 namespace ToDo.Api
 {
     public class Startup
     {
+        private readonly string _loginOrigin = "_localorigin";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,6 +32,17 @@ namespace ToDo.Api
             services.AddInfrastructure(Configuration);
 
             #endregion Service Extensions
+
+            #region Cors
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(_loginOrigin, builder => builder.AllowAnyOrigin()
+                                                                   .AllowAnyHeader()
+                                                                   .AllowAnyMethod());
+            });
+
+            #endregion Cors
 
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
@@ -51,11 +65,19 @@ namespace ToDo.Api
 
             app.UseHttpsRedirection();
 
+            app.UseCors(_loginOrigin);
+
             app.UseRouting();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            #region Middleware
+
+            app.UseErrorHandlingMiddleware();
+
+            #endregion Middleware
 
             app.UseEndpoints(endpoints =>
             {
