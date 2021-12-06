@@ -47,7 +47,7 @@ namespace Infraestructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TodoList",
+                name: "TodoLists",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -57,7 +57,7 @@ namespace Infraestructure.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TodoList", x => x.Id);
+                    table.PrimaryKey("PK_TodoLists", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -167,7 +167,7 @@ namespace Infraestructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TodoItem",
+                name: "TodoItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -179,11 +179,11 @@ namespace Infraestructure.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TodoItem", x => x.Id);
+                    table.PrimaryKey("PK_TodoItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TodoItem_TodoList_ListId",
+                        name: "FK_TodoItems_TodoLists_ListId",
                         column: x => x.ListId,
-                        principalTable: "TodoList",
+                        principalTable: "TodoLists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -228,8 +228,8 @@ namespace Infraestructure.Persistence.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TodoItem_ListId",
-                table: "TodoItem",
+                name: "IX_TodoItems_ListId",
+                table: "TodoItems",
                 column: "ListId");
         }
 
@@ -251,7 +251,7 @@ namespace Infraestructure.Persistence.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "TodoItem");
+                name: "TodoItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -260,7 +260,7 @@ namespace Infraestructure.Persistence.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "TodoList");
+                name: "TodoLists");
         }
     }
 }
