@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AccountService } from '../login/services/account.service';
 import { Todoitem } from '../models/todoitem';
+import { Todolist } from '../models/todolist';
 import { TodoService } from './services/todo.service';
 
 @Component({

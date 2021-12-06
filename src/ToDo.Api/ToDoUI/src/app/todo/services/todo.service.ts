@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Todoitem } from 'src/app/models/todoitem';
+import { Todolist } from 'src/app/models/todolist';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -19,6 +20,16 @@ export class TodoService {
       headers: this.headers_object
     }).pipe(map((resp) => {return resp;}));
   }
+
+  // createList(list: Todolist){
+  //   const entryData = {
+  //     title: list.title
+  //   }
+
+  //   return this.http.post(environment.apiUrl + '/todolists', entryData, {
+  //     headers: this.headers_object
+  //   });
+  // }
 
   createItem(item: Todoitem){
     const entryData = {

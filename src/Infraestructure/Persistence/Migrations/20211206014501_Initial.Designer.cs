@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211206003838_Initial")]
+    [Migration("20211206014501_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,14 @@ namespace Infraestructure.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TodoLists");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedBy = "Default",
+                            Title = "Default"
+                        });
                 });
 
             modelBuilder.Entity("Infraestructure.Identity.ApplicationUser", b =>

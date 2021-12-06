@@ -188,6 +188,11 @@ namespace Infraestructure.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "TodoLists",
+                columns: new[] { "Id", "CreatedBy", "Title" },
+                values: new object[] { 1, "Default", "Default" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",

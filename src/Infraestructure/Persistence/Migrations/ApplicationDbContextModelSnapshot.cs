@@ -65,6 +65,14 @@ namespace Infraestructure.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TodoLists");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedBy = "Default",
+                            Title = "Default"
+                        });
                 });
 
             modelBuilder.Entity("Infraestructure.Identity.ApplicationUser", b =>
